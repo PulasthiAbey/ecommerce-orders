@@ -1,0 +1,39 @@
+version: "3.8"
+
+services:
+  db:
+    image: postgres:13
+    restart: always
+    env_file: .env
+    environment:
+      POSTGRES_USER: ${PG_USERNAME}
+      POSTGRES_PASSWORD: ${PG_PASSWORD}
+      POSTGRES_DB: ${PG_DATABASE}
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    ports:
+      - "5435:5432"
+    profiles:
+      - local
+
+  backend:
+    build:
+      context: .
+      target: dev
+    restart: on-failure
+    depends_on:
+      - db
+    env_file: .env
+    environment:
+      NODE_ENV: dev
+      DATABASE_URL: ${DATABASE_URL}
+    ports:
+      - "3001:3001"
+    volumes:
+      - .:/usr/src/app
+    command: ["sh", "./scripts/start-dev.sh"]
+    profiles:
+      - local
+
+volumes:
+  pgdata:
