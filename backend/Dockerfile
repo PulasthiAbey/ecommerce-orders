@@ -10,7 +10,7 @@ COPY package*.json ./
 RUN npm install --dev
 COPY . .
 EXPOSE 3001
-CMD ["npm", "run", "dev"] 
+CMD ["sh", "-c", "npm run seed:products && npm run dev"]
 
 FROM base AS build
 COPY package*.json ./
@@ -25,4 +25,4 @@ COPY package*.json ./
 RUN npm install --dev
 COPY --from=build /usr/src/app/dist ./dist
 EXPOSE 3001
-CMD ["npm", "start"]
+CMD ["sh", "-c", "npm run seed:products-production && npm start"]
