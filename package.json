@@ -1,0 +1,26 @@
+{
+  "name": "ecommerce-orders",
+  "version": "1.0.0",
+  "description": "E Commerce application with frontend and backend",
+  "main": "index.js",
+  "scripts": {
+    "dev:backend": "npm run dev:docker --prefix backend",
+    "dev:frontend": "npm run dev --prefix frontend",
+    "dev": "concurrently -n backend,frontend \"npm run dev:backend\" \"npm run dev:frontend\"",
+    "down:backend": "npm run down:docker --prefix backend"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PulasthiAbey/ecommerce-orders.git"
+  },
+  "keywords": [],
+  "author": "Pulasthi Aberathne",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/PulasthiAbey/ecommerce-orders/issues"
+  },
+  "homepage": "https://github.com/PulasthiAbey/ecommerce-orders#readme",
+  "devDependencies": {
+    "concurrently": "^9.2.1"
+  }
+}

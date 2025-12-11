@@ -1,36 +1,122 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🧭 Ecommerce Frontend
 
-## Getting Started
+A simple, clean frontend built with Next.js (App Router), TypeScript, and Tailwind CSS.
 
-First, run the development server:
+This app connects to the Ecommerce Backend (Node.js + Express + Sequelize + PostgreSQL) and provides:
+
+- An Order Management screen (list + search)
+- A Book Order screen (create new orders with products)
+
+---
+
+## 📁 Project Structure
+
+```py
+ecommerce-frontend/
+├── app/
+│   ├── layout.tsx           # Root layout
+│   ├── page.tsx             # Redirects to /orders
+│   └── orders/
+│       ├── page.tsx         # Orders list + search
+│       └── new/
+│           └── page.tsx     # Book Order form
+│
+├── lib/
+│   └── api.ts               # API helper (GET/POST/PUT/DELETE)
+│
+├── types/
+│   └── order.ts             # Shared TS types (Order, Product, etc.)
+│
+├── public/                  # Static assets (if any)
+├── styles/                  # Global styles (Tailwind)
+├── .env.local.example       # Frontend env template
+└── package.json             # Scripts + dependencies
+```
+
+---
+
+## 🧭 Features
+
+- Next.js App Router with TypeScript
+- Orders List page:
+  - Table view of orders
+  - Search by Order ID or Order Description
+  - Delete order action
+- Book Order page:
+  - Text input for order description
+  - Checkbox list for selecting products
+  - Buttons: Book Order and Cancel
+- Uses the backend APIs:
+  - `GET /api/order`
+  - `GET /api/products`
+  - `POST /api/orders`
+  - `DELETE /api/orders/:id`
+
+---
+
+## 🧭 Best Practices
+
+### 🔖 Branch Naming Conventions
+
+| Branch Type | Prefix     | Example                                |
+| ----------- | ---------- | -------------------------------------- |
+| Feature     | `feature/` | `feature/user-auth`                    |
+| Bugfix      | `bugfix/`  | `bugfix/<jira-id>-<short-description>` |
+| Hotfix      | `hotfix/`  | `hotfix/<jira-id>-<short-description>` |
+| Release     | `release/` | `release/v1.0.0`                       |
+
+---
+
+### 📝 Commit Message Guidelines
+
+Follow **Conventional Commits**:
+
+```md
+Describe what you have done in a sentence.
+```
+
+---
+
+### 🔃 Pull Request Guidelines
+
+- Always create a new branch from `dev`
+- Ensure tests pass before pushing
+- Add clear title and description
+- Link relevant issues (e.g. `Closes #42`)
+- Request reviews before merging
+
+---
+
+### ✅ Code Quality
+
+- Use ESLint and Prettier (configured in repo)
+- Type-safe (strict TypeScript)
+- Tests must cover all critical paths
+- Document public methods, endpoints, and utilities
+
+---
+
+## 🛠️ Local Development
+
+### 1. Clone the Repo
+
+```bash
+git clone git@github.com:PulasthiAbey/ecommerce-orders.git
+cd ecommerce-orders
+```
+
+### 2. Install Dependencies
+
+```bash
+npm install
+```
+
+### 3. ▶️ Running the App (Development)
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Server will start on [`http://localhost:3000]`.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---

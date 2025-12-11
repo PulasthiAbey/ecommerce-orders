@@ -7,7 +7,9 @@
     "build": "tsc",
     "start": "NODE_ENV=production node dist/server.js",
     "seed:products": "ts-node-dev src/seed/seedProducts.ts",
-    "type-check": "tsc --noEmit"
+    "type-check": "tsc --noEmit",
+    "dev:docker": "docker compose --profile local up --build",
+    "down:docker": "docker compose down"
   },
   "dependencies": {
     "cors": "^2.8.5",
