@@ -11,8 +11,12 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-app.get("/health", (_req, res) => {
-  res.json({ message: "ecommerce backend up and running" });
+app.get("/", (_req, res) => {
+  res.json({
+    status: "ok",
+    service: "ecommerce-orders-backend",
+    env: process.env.NODE_ENV || "development",
+  });
 });
 
 app.get("/health", (_req, res) => {

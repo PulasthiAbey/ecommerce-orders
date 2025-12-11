@@ -9,7 +9,7 @@ async function start() {
   await syncModels();
 
   app.listen(PORT, () => {
-    console.log(`🚀 Backend listening on http://localhost:${PORT}`);
+    console.log(`🚀 Backend listening on port ${PORT}`);
   });
 }
 
