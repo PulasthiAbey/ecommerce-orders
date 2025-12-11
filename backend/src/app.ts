@@ -3,6 +3,7 @@ import cors from "cors";
 import dotenv from "dotenv";
 import ordersRouter from "./routes/orders.routes";
 import productsRouter from "./routes/products.routes";
+import seedRouter from "./routes/seed.routes";
 
 dotenv.config();
 
@@ -25,5 +26,6 @@ app.get("/health", (_req, res) => {
 
 app.use("/api", ordersRouter);
 app.use("/api", productsRouter);
+app.use("/api/seed", seedRouter);
 
 export default app;
