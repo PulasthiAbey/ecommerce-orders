@@ -3,11 +3,11 @@
   "version": "1.0.0",
   "main": "dist/server.js",
   "scripts": {
-    "dev": "npm run seed:products && NODE_ENV=dev ts-node-dev --respawn --transpile-only src/server.ts",
+    "dev": "NODE_ENV=dev ts-node-dev --respawn --transpile-only src/server.ts",
     "build": "tsc",
-    "start": "npm run seed:products && NODE_ENV=production node dist/server.js",
+    "start": "NODE_ENV=production node dist/server.js",
     "seed:products": "ts-node-dev src/seed/seedProducts.ts",
-    "seed:products-production": "ts-node-dev dist/seed/seedProducts.ts",
+    "seed:products-prod": "node dist/seed/seedProducts.js",
     "type-check": "tsc --noEmit",
     "dev:docker": "docker compose --profile local up --build",
     "down:docker": "docker compose down"
