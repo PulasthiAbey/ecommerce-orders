@@ -12,6 +12,10 @@ app.use(cors());
 app.use(express.json());
 
 app.get("/health", (_req, res) => {
+  res.json({ message: "ecommerce backend up and running" });
+});
+
+app.get("/health", (_req, res) => {
   res.json({ status: "ok" });
 });
 
