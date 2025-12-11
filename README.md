@@ -130,6 +130,7 @@ npm install
 npm run dev
 ```
 
-Server will start on [`http://localhost:3000]`.
+- Server will start on [`http://localhost:3000]`.
+- Deployed app is available at [ecommerce-orders-flax.vercel.app](ecommerce-orders-flax.vercel.app).
 
 ---
